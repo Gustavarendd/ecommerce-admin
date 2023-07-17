@@ -26,11 +26,11 @@ const Orders = async ({ params }: { params: { storeId: string } }) => {
     phone: item.phone,
     address: item.address,
     products: item.orderItems
-      .map(orderItem => orderItem.product.name)
+      .map(orderItem => orderItem.product!.name)
       .join(', '),
     totalPrice: formatter.format(
       item.orderItems.reduce((total, item) => {
-        return total + Number(item.product.price);
+        return total + Number(item.product?.price);
       }, 0),
     ),
     isPaid: item.isPaid,
