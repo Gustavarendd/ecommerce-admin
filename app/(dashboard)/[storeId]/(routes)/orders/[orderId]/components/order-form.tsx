@@ -127,7 +127,7 @@ export const OrderForm = ({
       toast.error('Something went wrong');
     } finally {
       setLoading(false);
-      setOpen(false);
+      setOpenProductDelete(false);
     }
   };
 
