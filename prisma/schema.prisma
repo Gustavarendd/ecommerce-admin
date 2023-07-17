@@ -124,7 +124,7 @@ model Order {
   id          String      @id @default(uuid())
   storeId     String
   store       Store       @relation("StoreToOrder", fields: [storeId], references: [id])
-  orderItems  OrderItem[]
+  orderItems  OrderItem[] 
   isPaid      Boolean     @default(false)
   phone       String      @default("")
   address     String      @default("")
@@ -137,10 +137,10 @@ model Order {
 
 model OrderItem {
   id          String      @id @default(uuid())
-  orderId     String
-  order       Order       @relation(fields: [orderId], references: [id])
-  productId   String
-  product     Product     @relation(fields: [productId], references: [id])
+  orderId     String?
+  order       Order?       @relation(fields: [orderId], references: [id], onDelete: SetNull, onUpdate: SetNull)
+  productId   String?
+  product     Product?     @relation(fields: [productId], references: [id], onUpdate: SetNull, onDelete: SetNull)
 
 
   @@index([orderId])

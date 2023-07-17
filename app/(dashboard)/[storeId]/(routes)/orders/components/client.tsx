@@ -13,9 +13,6 @@ interface OrdersClientProps {
 }
 
 export const OrdersClient = ({ data }: OrdersClientProps) => {
-  const router = useRouter();
-  const params = useParams();
-
   return (
     <>
       <Heading
